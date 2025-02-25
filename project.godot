@@ -1,0 +1,54 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "EconomyActor",
+"language": "GDScript",
+"path": "res://economy_emulator/economy_actor.gd"
+}, {
+"base": "Node",
+"class": "EconomyEmulator",
+"language": "GDScript",
+"path": "res://economy_emulator/economy_emulator.gd"
+}, {
+"base": "Reference",
+"class": "EconomyEvent",
+"language": "GDScript",
+"path": "res://economy_emulator/economy_event.gd"
+}, {
+"base": "Reference",
+"class": "PriceModification",
+"language": "GDScript",
+"path": "res://economy_emulator/price_modification.gd"
+}, {
+"base": "Reference",
+"class": "PriceModifier",
+"language": "GDScript",
+"path": "res://economy_emulator/price_modifier.gd"
+} ]
+_global_script_class_icons={
+"EconomyActor": "",
+"EconomyEmulator": "",
+"EconomyEvent": "",
+"PriceModification": "",
+"PriceModifier": ""
+}
+
+[application]
+
+config/name="EconomyEmulator"
+run/main_scene="res://economy_emulator/test_scene/economy_test_scene.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_clear_color=Color( 0.184314, 0.184314, 0.184314, 1 )
+environment/default_environment="res://default_env.tres"

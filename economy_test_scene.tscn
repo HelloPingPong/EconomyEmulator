@@ -1,0 +1,465 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://economy_emulator/test_scene/economy_test_scene.gd" type="Script" id=1]
+[ext_resource path="res://BANKGOTHIC MD BT MEDIUM.TTF" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="economy_test_scene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 1 )
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="MarginContainer" parent="HSplitContainer"]
+margin_right = 380.0
+margin_bottom = 600.0
+
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer/VBoxContainer"]
+margin_right = 380.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 300, 0 )
+tab_align = 0
+
+[node name="actors" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 35.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/actors"]
+margin_right = 372.0
+margin_bottom = 17.0
+text = "Actors"
+
+[node name="setup" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/actors"]
+margin_top = 21.0
+margin_right = 372.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/actors/setup"]
+margin_top = 5.0
+margin_right = 43.0
+margin_bottom = 22.0
+text = "name"
+
+[node name="LineEdit" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/actors/setup"]
+margin_left = 47.0
+margin_right = 129.0
+margin_bottom = 27.0
+
+[node name="Label2" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/actors/setup"]
+margin_left = 133.0
+margin_top = 5.0
+margin_right = 193.0
+margin_bottom = 22.0
+text = "parent"
+
+[node name="parent" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/actors/setup"]
+margin_left = 197.0
+margin_right = 286.0
+margin_bottom = 27.0
+text = "parent"
+
+[node name="parent_bond" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/actors/setup"]
+margin_left = 290.0
+margin_right = 372.0
+margin_bottom = 27.0
+placeholder_text = "bond"
+
+[node name="add_actor" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/actors"]
+margin_top = 52.0
+margin_right = 372.0
+margin_bottom = 75.0
+text = "Add actor"
+
+[node name="actors_list" type="ItemList" parent="HSplitContainer/VBoxContainer/TabContainer/actors"]
+margin_top = 79.0
+margin_right = 372.0
+margin_bottom = 561.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+items = [ "test", null, false ]
+
+[node name="groups" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 35.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/groups"]
+margin_right = 40.0
+margin_bottom = 17.0
+text = "Groups"
+
+[node name="setup" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/groups"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="group_name" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/groups/setup"]
+margin_right = 82.0
+margin_bottom = 27.0
+placeholder_text = "group name"
+
+[node name="add_group" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/groups"]
+margin_right = 12.0
+margin_bottom = 23.0
+text = "add group"
+
+[node name="group_list" type="ItemList" parent="HSplitContainer/VBoxContainer/TabContainer/groups"]
+margin_right = 40.0
+margin_bottom = 40.0
+size_flags_vertical = 3
+
+[node name="items" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -297.0
+margin_right = -8.0
+margin_bottom = -316.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/items"]
+margin_right = 454.0
+margin_bottom = 17.0
+text = "Products"
+
+[node name="setup" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/items"]
+margin_top = 21.0
+margin_right = 454.0
+margin_bottom = 48.0
+
+[node name="Label" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/items/setup"]
+margin_top = 5.0
+margin_right = 43.0
+margin_bottom = 22.0
+text = "name"
+
+[node name="item_name" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/items/setup"]
+margin_left = 47.0
+margin_right = 129.0
+margin_bottom = 27.0
+
+[node name="Label2" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/items/setup"]
+margin_left = 133.0
+margin_top = 5.0
+margin_right = 178.0
+margin_bottom = 22.0
+text = "price"
+
+[node name="item_price" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/items/setup"]
+margin_left = 182.0
+margin_right = 264.0
+margin_bottom = 27.0
+
+[node name="group_select" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/items/setup"]
+margin_right = 29.0
+margin_bottom = 23.0
+
+[node name="add_item" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/items"]
+margin_top = 52.0
+margin_right = 454.0
+margin_bottom = 75.0
+text = "Add product"
+
+[node name="items_list" type="ItemList" parent="HSplitContainer/VBoxContainer/TabContainer/items"]
+margin_top = 79.0
+margin_right = 454.0
+margin_bottom = 581.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="modifiers" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -198.0
+margin_bottom = -217.0
+
+[node name="Label2" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers"]
+margin_right = 462.0
+margin_bottom = 17.0
+text = "Modifiers"
+
+[node name="setup" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers"]
+margin_top = 21.0
+margin_right = 462.0
+margin_bottom = 48.0
+
+[node name="mod_name" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/setup"]
+margin_right = 82.0
+margin_bottom = 27.0
+placeholder_text = "name"
+
+[node name="OptionButton" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/setup"]
+margin_left = 86.0
+margin_right = 187.0
+margin_bottom = 27.0
+text = "product"
+
+[node name="mod_value" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/setup"]
+margin_left = 191.0
+margin_right = 273.0
+margin_bottom = 27.0
+placeholder_text = "value"
+
+[node name="mod_type" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/setup"]
+margin_left = 277.0
+margin_right = 344.0
+margin_bottom = 27.0
+text = "type"
+
+[node name="mod_stacking" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/setup"]
+margin_left = 348.0
+margin_right = 454.0
+margin_bottom = 27.0
+text = "stacking"
+
+[node name="add_modifier" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers"]
+margin_top = 52.0
+margin_right = 462.0
+margin_bottom = 75.0
+text = "Add modifier"
+
+[node name="mod_list" type="ItemList" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers"]
+margin_top = 79.0
+margin_right = 462.0
+margin_bottom = 554.0
+size_flags_vertical = 3
+
+[node name="modifiers_control" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers"]
+margin_top = 558.0
+margin_right = 462.0
+margin_bottom = 581.0
+
+[node name="actor" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/modifiers_control"]
+margin_right = 29.0
+margin_bottom = 23.0
+
+[node name="activate_modifier" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/modifiers/modifiers_control"]
+margin_left = 33.0
+margin_right = 197.0
+margin_bottom = 23.0
+text = "activate modifier"
+
+[node name="events" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -99.0
+margin_right = -8.0
+margin_bottom = -118.0
+
+[node name="Label3" type="Label" parent="HSplitContainer/VBoxContainer/TabContainer/events"]
+margin_right = 454.0
+margin_bottom = 17.0
+text = "Events"
+
+[node name="setup" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/events"]
+margin_top = 21.0
+margin_right = 454.0
+margin_bottom = 48.0
+
+[node name="event_name" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/events/setup"]
+margin_right = 82.0
+margin_bottom = 27.0
+placeholder_text = "name"
+
+[node name="modifier" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/events/setup"]
+margin_left = 86.0
+margin_right = 188.0
+margin_bottom = 27.0
+text = "modifier"
+
+[node name="delay" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/events/setup"]
+margin_left = 192.0
+margin_right = 274.0
+margin_bottom = 27.0
+placeholder_text = "delay"
+
+[node name="duration" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/events/setup"]
+margin_left = 278.0
+margin_right = 360.0
+margin_bottom = 27.0
+placeholder_text = "duration"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="interpolation" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/events/setup"]
+margin_left = 364.0
+margin_right = 431.0
+margin_bottom = 27.0
+text = "type"
+
+[node name="add_event" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/events"]
+margin_top = 52.0
+margin_right = 454.0
+margin_bottom = 75.0
+text = "Add event"
+
+[node name="events_list" type="ItemList" parent="HSplitContainer/VBoxContainer/TabContainer/events"]
+margin_top = 79.0
+margin_right = 454.0
+margin_bottom = 550.0
+size_flags_vertical = 3
+select_mode = 1
+
+[node name="event_control" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/events"]
+margin_top = 554.0
+margin_right = 454.0
+margin_bottom = 581.0
+
+[node name="actor" type="OptionButton" parent="HSplitContainer/VBoxContainer/TabContainer/events/event_control"]
+margin_right = 29.0
+margin_bottom = 27.0
+
+[node name="event_delay" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/events/event_control"]
+margin_left = 33.0
+margin_right = 115.0
+margin_bottom = 27.0
+placeholder_text = "delay"
+
+[node name="activate_event" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/events/event_control"]
+margin_left = 119.0
+margin_right = 260.0
+margin_bottom = 27.0
+text = "activate event"
+
+[node name="globals" type="VBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 35.0
+margin_right = -418.0
+margin_bottom = -39.0
+
+[node name="reset_economy" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/globals"]
+margin_right = 317.0
+margin_bottom = 23.0
+text = "reset all"
+
+[node name="price_grow" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/globals"]
+margin_top = 27.0
+margin_right = 317.0
+margin_bottom = 54.0
+
+[node name="grow_amount" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/globals/price_grow"]
+margin_right = 82.0
+margin_bottom = 27.0
+placeholder_text = "price grow"
+
+[node name="set_price_grow" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/globals/price_grow"]
+margin_left = 86.0
+margin_right = 230.0
+margin_bottom = 27.0
+text = "set price grow"
+
+[node name="price_drifts" type="HBoxContainer" parent="HSplitContainer/VBoxContainer/TabContainer/globals"]
+margin_top = 58.0
+margin_right = 317.0
+margin_bottom = 85.0
+
+[node name="percent" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/globals/price_drifts"]
+margin_right = 82.0
+margin_bottom = 27.0
+placeholder_text = "percent"
+
+[node name="period" type="LineEdit" parent="HSplitContainer/VBoxContainer/TabContainer/globals/price_drifts"]
+margin_left = 86.0
+margin_right = 168.0
+margin_bottom = 27.0
+placeholder_text = "period"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_price_drift" type="Button" parent="HSplitContainer/VBoxContainer/TabContainer/globals/price_drifts"]
+margin_left = 172.0
+margin_right = 317.0
+margin_bottom = 27.0
+text = "add price drift"
+
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer"]
+margin_left = 392.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="lines" type="ColorRect" parent="HSplitContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 392.0
+margin_right = 384.0
+margin_bottom = -39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="RichTextLabel" parent="HSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 304.0
+margin_top = 294.0
+margin_right = 296.0
+margin_bottom = 255.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="HSplitContainer/TabContainer/GridContainer"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/actors/add_actor" to="." method="_on_add_actor_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/groups/add_group" to="." method="_on_add_group_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/items/add_item" to="." method="_on_add_item_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/modifiers/add_modifier" to="." method="_on_add_modifier_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/modifiers/modifiers_control/activate_modifier" to="." method="_on_activate_modifier_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/events/add_event" to="." method="_on_add_event_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/events/event_control/activate_event" to="." method="_on_activate_event_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/globals/price_grow/set_price_grow" to="." method="_on_set_price_grow_pressed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/TabContainer/globals/price_drifts/add_price_drift" to="." method="_on_add_price_drift_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
